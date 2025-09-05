@@ -54,11 +54,11 @@ real_time_vision_pipeline/
 ├─ README.md
 ├─ LICENSE
 ├─ requirements.txt
-├─ .gitignore
-├─ docs/
+├─ out/
 │  ├─ disparity.png
 │  ├─ depth_preview_8u.png
 │  ├─ depth_mm_16u.png
+│  ├─ depth.npy
 │  └─ cloud.ply
 └─ ros2_ws/
    └─ src/

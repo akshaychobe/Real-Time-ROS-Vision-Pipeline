@@ -176,6 +176,4 @@ ros2 run stereo_perception pointcloud_node
 - **Datasets**  
   - [KITTI Stereo 2015 Dataset](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)  
   - [Middlebury Stereo Dataset](https://vision.middlebury.edu/stereo/)  
-  - [Aloe Stereo Pair (OpenCV Test Data)](https://github.com/opencv/opencv_extra/tree/master/testdata/cv/stereo_matching)  
-
 

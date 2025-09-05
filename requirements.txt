@@ -1,0 +1,6 @@
+# Python dependencies for stereo_perception pipeline
+
+opencv-python>=4.8.0
+numpy>=1.23,<2
+PyYAML>=6.0
+sensor-msgs-py   # provides sensor_msgs_py.point_cloud2 utilities

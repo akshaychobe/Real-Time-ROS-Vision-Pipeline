@@ -152,7 +152,8 @@ ros2 run stereo_perception pointcloud_node
   ![Depth Preview](out/depth_preview_8u.png)  
 
 - **3D Point Cloud**  
-  `out/cloud.ply` (viewable in MeshLab, CloudCompare, Open3D)
+  ![Point Cloud](out/cloud.png)  
+  [Download cloud.ply](out/cloud.ply) (viewable in MeshLab, CloudCompare, Open3D)
 
 ---
 

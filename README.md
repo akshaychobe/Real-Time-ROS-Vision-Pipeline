@@ -146,7 +146,7 @@ ros2 run stereo_perception pointcloud_node
   ![Left](src/stereo_perception/stereo_perception/data/left.png) ![Right](src/stereo_perception/stereo_perception/data/right.png)  
 
 - **Disparity Map**  
-  ![Disparity](out/disparity.png)  
+  ![Centre]![Disparity](out/disparity.png)  
 
 - **Depth Map Preview**  
   ![Depth Preview](out/depth_preview_8u.png)  

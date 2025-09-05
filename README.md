@@ -146,16 +146,21 @@ ros2 run stereo_perception pointcloud_node
   ![Left](src/stereo_perception/stereo_perception/data/left.png) ![Right](src/stereo_perception/stereo_perception/data/right.png)  
 
 - **Disparity Map**  
-  ![Centre]![Disparity](out/disparity.png)  
+<p align="center">
+  <img src="out/disparity.png" alt="Disparity Map" width="65%">
+</p>
 
 - **Depth Map Preview**  
-  ![Depth Preview](out/depth_preview_8u.png)  
+<p align="center">
+  <img src="out/depth_preview_8u.png" alt="Depth Map Preview" width="65%">
+</p>
 
 - **3D Point Cloud**  
   ![Point Cloud](out/cloud.png)   
   [Download cloud.ply](out/cloud.ply) (viewable in MeshLab, CloudCompare, Open3D)
 
 ---
+
 
 ## 8. References
 

@@ -50,37 +50,39 @@ These datasets were chosen because they are **public, well-documented, and repro
 ## 4. Project Structure
 
 ```
-ros2_ws/
-├─ src/
-│  └─ stereo_perception/
-│     ├─ package.xml
-│     ├─ setup.py
-│     ├─ stereo_perception/
-│     │  ├─ __init__.py
-│     │  ├─ calib/
-│     │  │  ├─ stereo_intrinsics.yaml
-│     │  │  └─ stereo_extrinsics.yaml
-│     │  ├─ nodes/
-│     │  │  ├─ file_image_publisher.py
-│     │  │  ├─ stereo_rectify_node.py
-│     │  │  ├─ depth_sgbm_node.py
-│     │  │  └─ pointcloud_node.py
-│     │  ├─ launch/
-│     │  │  └─ demo_stereo.launch.py
-│     │  └─ data/
-│     │     ├─ left.png
-│     │     └─ right.png
-│     └─ resource/
-│        └─ stereo_perception
-├─ build/ ... (colcon build artifacts)
-├─ install/ ... (installed package and share folder)
-├─ log/ ... (build/runtime logs)
-└─ out/
-   ├─ disparity.png
-   ├─ depth_preview_8u.png
-   ├─ depth_mm_16u.png
-   ├─ depth.npy
-   └─ cloud.ply
+real_time_vision_pipeline/
+├─ README.md
+├─ LICENSE
+├─ requirements.txt
+├─ .gitignore
+├─ docs/
+│  ├─ disparity.png
+│  ├─ depth_preview_8u.png
+│  ├─ depth_mm_16u.png
+│  └─ cloud.ply
+└─ ros2_ws/
+   └─ src/
+      └─ stereo_perception/
+         ├─ package.xml
+         ├─ setup.py
+         ├─ resource/
+         │  └─ stereo_perception
+         └─ stereo_perception/
+            ├─ __init__.py
+            ├─ calib/
+            │  ├─ stereo_intrinsics.yaml
+            │  └─ stereo_extrinsics.yaml
+            ├─ nodes/
+            │  ├─ file_image_publisher.py
+            │  ├─ stereo_rectify_node.py
+            │  ├─ depth_sgbm_node.py
+            │  └─ pointcloud_node.py
+            ├─ launch/
+            │  └─ demo_stereo.launch.py
+            └─ data/
+               ├─ left.png
+               └─ right.png
+
 ```
 
 ---

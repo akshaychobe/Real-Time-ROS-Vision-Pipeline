@@ -171,8 +171,6 @@ ros2 run stereo_perception pointcloud_node
 - **OpenCV Stereo Matching (SGBM)** – [StereoSGBM Tutorial](https://docs.opencv.org/4.x/d2/d85/classcv_1_1StereoSGBM.html)  
 - **ROS 2 Tutorials**  
   - [cv_bridge](https://index.ros.org/p/cv_bridge/)  
-  - [image_transport](https://docs.ros.org/en/humble/Tutorials/Intermediate/Image-Transport/Publisher-Subscriber.html)  
-  - [message_filters](https://docs.ros.org/en/humble/Tutorials/Intermediate/Time-Synchronizer/Time-Synchronizer.html)  
 - **Datasets**  
   - [KITTI Stereo 2015 Dataset](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)  
   - [Middlebury Stereo Dataset](https://vision.middlebury.edu/stereo/)  

@@ -164,7 +164,15 @@ ros2 run stereo_perception pointcloud_node
 
 ## 8. References
 
-- OpenCV documentation on stereo calibration & SGBM  
-- ROS 2 tutorials on image transport, cv_bridge, and message filters  
-- KITTI & Middlebury stereo datasets for validation  
+- **OpenCV Stereo Calibration & Rectification** – [OpenCV Docs](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html)  
+- **OpenCV Stereo Matching (SGBM)** – [StereoSGBM Tutorial](https://docs.opencv.org/4.x/d2/d85/classcv_1_1StereoSGBM.html)  
+- **ROS 2 Tutorials**  
+  - [cv_bridge](https://index.ros.org/p/cv_bridge/)  
+  - [image_transport](https://docs.ros.org/en/humble/Tutorials/Intermediate/Image-Transport/Publisher-Subscriber.html)  
+  - [message_filters](https://docs.ros.org/en/humble/Tutorials/Intermediate/Time-Synchronizer/Time-Synchronizer.html)  
+- **Datasets**  
+  - [KITTI Stereo 2015 Dataset](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)  
+  - [Middlebury Stereo Dataset](https://vision.middlebury.edu/stereo/)  
+  - [Aloe Stereo Pair (OpenCV Test Data)](https://github.com/opencv/opencv_extra/tree/master/testdata/cv/stereo_matching)  
+
 

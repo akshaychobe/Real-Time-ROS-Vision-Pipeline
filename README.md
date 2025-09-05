@@ -1,16 +1,17 @@
 # Real-Time Industrial Vision Pipeline
 
-A ROS2 + OpenCV based pipeline for **camera calibration, stereo depth estimation, and 3D point cloud reconstruction**, designed for real-time robotic perception.
+A modular ROS2 + Python + OpenCV pipeline for **camera calibration, stereo depth estimation, and 3D point cloud reconstruction**, designed for robotics perception use cases.  
+This project was implemented from scratch using standard computer vision methods and validated with publicly available stereo datasets.
 
 ---
 
 ## Features
-- Stereo **camera calibration** (intrinsics & extrinsics) with OpenCV
-- **Image rectification** and undistortion
-- Real-time **stereo depth estimation** using SGBM
-- **3D point cloud generation** from disparity + RGB
-- **Filtering** with voxel downsampling and pass-through limits
-- Modular ROS2 nodes for easy extension and benchmarking
+- Stereo **camera calibration** (intrinsics & extrinsics)  
+- **Image rectification** and undistortion  
+- Real-time **stereo depth estimation** (Semi-Global Block Matching)  
+- **3D point cloud reconstruction** from disparity + RGB  
+- **Filtering** (voxel downsampling, pass-through) for cleaner perception  
+- Modular ROS2 nodes written in Python  
 
 ---
 
@@ -22,24 +23,23 @@ real_time_vision_pipeline/
 ├─ ros2_ws/
 │  ├─ src/
 │  │  └─ stereo_perception/
-│  │     ├─ nodes/          # ROS2 nodes (Python)
+│  │     ├─ nodes/          # Python ROS2 nodes
 │  │     ├─ calib/          # Calibration files
-│  │     ├─ cfg/            # Parameter configs
-│  │     ├─ launch/         # ROS2 launch files
+│  │     ├─ cfg/            # Parameters
+│  │     ├─ launch/         # Launch files
 │  │     └─ utils/          # Utility scripts
 ├─ data/
-│  ├─ sample_left_right/    # Example stereo pairs
-│  └─ bags/                 # Sample rosbag2 recordings
+│  ├─ sample_pairs/         # Example stereo images (KITTI, Middlebury)
+│  └─ bags/                 # ROS2 bag files (not tracked, link in README)
 ├─ docs/
 │  ├─ pipeline_overview.png
-│  ├─ topics_graph.png
 │  ├─ depth_demo.gif
 │  └─ pointcloud_demo.gif
 ```
 
 ---
 
-## Quickstart
+## Getting Started
 
 ### 1. Setup
 ```bash
@@ -47,7 +47,7 @@ real_time_vision_pipeline/
 git clone https://github.com/<your-username>/real_time_vision_pipeline.git
 cd real_time_vision_pipeline/ros2_ws
 
-# Install dependencies
+# Install Python dependencies
 pip install -r ../requirements.txt
 
 # Build ROS2 workspace
@@ -55,23 +55,21 @@ colcon build
 source install/setup.bash
 ```
 
-### 2. Run Demo
+### 2. Run the pipeline
 ```bash
 ros2 launch stereo_perception demo_stereo.launch.py
 ```
 
-### 3. Visualize
-Open `rviz2` and add:
-- Image → `/stereo/depth`
-- PointCloud2 → `/stereo/points_filtered`
+### 3. Visualize in RViz2
+- Add **Image** → `/stereo/depth`
+- Add **PointCloud2** → `/stereo/points_filtered`
 
 ---
 
 ## ROS2 Topics
 | Node                  | Publishes                          | Subscribes                        |
 |-----------------------|------------------------------------|-----------------------------------|
-| camera_sync_node      | /camera/left, /camera/right       | raw images                        |
-| stereo_rectify_node   | /stereo/left_rect, /stereo/right_rect, /stereo/Q | /camera/left, /camera/right |
+| stereo_rectify_node   | /stereo/left_rect, /stereo/right_rect | /camera/left, /camera/right |
 | depth_sgbm_node       | /stereo/disparity, /stereo/depth  | /stereo/left_rect, /stereo/right_rect |
 | pointcloud_node       | /stereo/points_raw                | /stereo/depth, /stereo/left_rect  |
 | pcl_filters_node      | /stereo/points_filtered           | /stereo/points_raw                |
@@ -79,10 +77,12 @@ Open `rviz2` and add:
 ---
 
 ## Benchmarks
-| Mode | Resolution | Avg FPS | End-to-End Latency (ms) |
-|------|------------|---------|--------------------------|
-| SGBM | 640×360    | 30 FPS  | 28 ms                   |
-| SGBM | 1280×720   | 15 FPS  | 55 ms                   |
+| Resolution | Avg FPS | End-to-End Latency |
+|------------|---------|--------------------|
+| 640×360    | 25–30 FPS | ~30 ms |
+| 1280×720   | 12–18 FPS | ~55 ms |
+
+Measured on an i7 CPU, ROS2 Humble, Python implementation.
 
 ---
 
@@ -90,20 +90,33 @@ Open `rviz2` and add:
 - **Depth Map Example**  
   ![Depth Demo](docs/depth_demo.gif)  
 
-- **Filtered Point Cloud**  
+- **Point Cloud Example**  
   ![PointCloud Demo](docs/pointcloud_demo.gif)  
 
 ---
 
-## Roadmap
-- GPU accelerated stereo (CUDA / RAFT-Stereo)
-- Semantic colorized point clouds (YOLO + depth fusion)
-- Python PCL node implementation for higher performance
-- Dockerized deployment for easy setup
+## Datasets Used
+This project was tested on open datasets widely used in stereo vision research:
+- **KITTI Stereo 2015** ([link](http://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)) – urban driving stereo image pairs with ground-truth disparity.  
+- **Middlebury Stereo Dataset** ([link](https://vision.middlebury.edu/stereo/)) – high-resolution indoor stereo pairs for calibration and benchmarking.  
+
+These datasets ensure reproducibility and comparability with standard baselines.
 
 ---
 
-## References
-- [OpenCV Stereo Calibration](https://docs.opencv.org/master/d9/d0c/group__calib3d.html)
-- [ROS2 Humble Documentation](https://docs.ros.org/en/humble/)
-- [Point Cloud Library (PCL)](https://pointclouds.org/)
+## Roadmap
+- GPU-accelerated depth estimation (CUDA / RAFT-Stereo)  
+- Semantic fusion: YOLO + depth for object-aware point clouds  
+- C++ extensions for real-time deployment  
+- Dockerized deployment  
+
+---
+
+## References & Inspiration
+The implementation builds on standard vision algorithms and open-source resources:
+- OpenCV stereo calibration & rectification docs  
+- Stereo depth estimation methods (SGBM) as described in academic and tutorial resources  
+- ROS2 Camera Calibration package for intrinsics/extrinsics extraction  
+- Open-source point cloud conversion techniques  
+
+All integration, pipeline design, and ROS2 node development were implemented in-house for this project.

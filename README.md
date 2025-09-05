@@ -68,8 +68,6 @@ real_time_vision_pipeline/
       └─ stereo_perception/
          ├─ package.xml
          ├─ setup.py
-         ├─ resource/
-         │  └─ stereo_perception
          └─ stereo_perception/
             ├─ __init__.py
             ├─ calib/

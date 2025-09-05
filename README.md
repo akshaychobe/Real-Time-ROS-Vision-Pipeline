@@ -98,7 +98,7 @@ Open `rviz2` and add:
 ## Roadmap
 - GPU accelerated stereo (CUDA / RAFT-Stereo)
 - Semantic colorized point clouds (YOLO + depth fusion)
-- C++ PCL node implementation for higher performance
+- Python PCL node implementation for higher performance
 - Dockerized deployment for easy setup
 
 ---

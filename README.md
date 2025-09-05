@@ -143,7 +143,7 @@ ros2 run stereo_perception pointcloud_node
 ## 7. Results
 
 - **Input Stereo Pair**  
-  ![Left](stereo_perception/data/left.png) ![Right](stereo_perception/data/right.png)  
+  ![Left](src/stereo_perception/stereo_perception/data/left.png) ![Right](src/stereo_perception/stereo_perception/data/right.png)  
 
 - **Disparity Map**  
   ![Disparity](out/disparity.png)  

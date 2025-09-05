@@ -157,16 +157,7 @@ ros2 run stereo_perception pointcloud_node
 
 ---
 
-## 8. Roadmap
-
-- GPU‑accelerated depth estimation (CUDA / RAFT‑Stereo)  
-- Semantic fusion: combine YOLO detections with depth for object‑aware perception  
-- C++ node implementations for deployment  
-- Dockerized pipeline for reproducible builds  
-
----
-
-## 9. References
+## 8. References
 
 - OpenCV documentation on stereo calibration & SGBM  
 - ROS 2 tutorials on image transport, cv_bridge, and message filters  

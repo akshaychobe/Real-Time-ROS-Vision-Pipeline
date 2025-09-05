@@ -1,6 +1,9 @@
 # Real‑Time Industrial ROS2 Vision Pipeline
 
 A complete **ROS 2 + Python + OpenCV** pipeline for stereo camera calibration, rectification, depth estimation, and 3D point‑cloud reconstruction.  
+<p align="center">
+  <img src="out/pipeline_demo.gif">
+</p>
 This project demonstrates the journey from raw stereo images to disparity maps, depth maps, and 3D geometry using a modular ROS 2 package.
 
 ---
